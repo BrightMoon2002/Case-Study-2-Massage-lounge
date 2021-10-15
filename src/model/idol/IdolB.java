@@ -20,13 +20,13 @@ public class IdolB extends Idol{
     }
 
     @Override
-    public String getName() {
-        return super.getName();
+    public String getStageName() {
+        return super.getStageName();
     }
 
     @Override
-    public void setName(String name) {
-        super.setName(name);
+    public void setStageName(String stageName) {
+        super.setStageName(stageName);
     }
 
     @Override

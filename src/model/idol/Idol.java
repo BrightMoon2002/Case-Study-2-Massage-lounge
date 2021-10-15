@@ -1,7 +1,7 @@
 package model.idol;
 
 public abstract class Idol {
-    private String name;
+    private String stageName;
 
     private String dOB;
     private double height;
@@ -11,7 +11,7 @@ public abstract class Idol {
     private boolean status;
 
     public Idol(String name, String dOB, double height, String bodyMeasurements, int rateService, double price, boolean status) {
-        this.name = name;
+        this.stageName = name;
         this.dOB = dOB;
         this.height = height;
         this.bodyMeasurements = bodyMeasurements;
@@ -32,12 +32,12 @@ public abstract class Idol {
     }
 
 
-    public String getName() {
-        return name;
+    public String getStageName() {
+        return stageName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setStageName(String stageName) {
+        this.stageName = stageName;
     }
 
     public String getDOB() {
@@ -84,7 +84,7 @@ public abstract class Idol {
     @Override
     public String toString() {
         return "IdolManager{" +
-                "name='" + name + '\'' +
+                "name='" + stageName + '\'' +
                 ", dOB='" + dOB + '\'' +
                 ", height=" + height +
                 ", bodyMeasurements='" + bodyMeasurements + '\'' +
