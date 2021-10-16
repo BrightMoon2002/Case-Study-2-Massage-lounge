@@ -1,25 +1,30 @@
 package model;
 
 import model.idol.Idol;
+import model.room.Room;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Bill {
     private String code;
     private Idol idol;
-    private double money;
-    private LocalDate checkin;
-    private LocalDate checkout;
+    private Room room;
+    private Customer customer;
+    private LocalTime checkin;
+    private LocalTime expiryDate;
+    private LocalTime checkout;
 
     public Bill() {
     }
 
-    public Bill(String code, Idol idol, double money, LocalDate checkin, LocalDate checkout) {
+    public Bill(String code, Idol idol, LocalTime checkin, LocalTime checkout) {
         this.code = code;
         this.idol = idol;
-        this.money = money;
         this.checkin = checkin;
+        this.expiryDate = checkin.plusHours(2);
         this.checkout = checkout;
+
     }
 
     public String getCode() {
@@ -38,28 +43,49 @@ public class Bill {
         this.idol = idol;
     }
 
-    public double getMoney() {
-        return money;
-    }
 
-    public void setMoney(double money) {
-        this.money = money;
-    }
-
-    public LocalDate getCheckin() {
+    public LocalTime getCheckin() {
         return checkin;
     }
 
-    public void setCheckin(LocalDate checkin) {
+    public void setCheckin(LocalTime checkin) {
         this.checkin = checkin;
     }
 
-    public LocalDate getCheckout() {
+    public LocalTime getCheckout() {
         return checkout;
     }
 
-    public void setCheckout(LocalDate checkout) {
+    public void setCheckout(LocalTime checkout) {
         this.checkout = checkout;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public double getMoneyOfRoomAndIdol() {
+        return (room.getPrice() + idol.getPrice());
+    }
+
+    public long getTimeUseService() {
+        long time = 0;
+        time = checkout.compareTo(checkin);
+        return time;
+    }
+
+    public double getMoneyToPay() {
+        double money = 0;
+        if (getTimeUseService() <= 2) {
+            money = getMoneyOfRoomAndIdol();
+        } else {
+            money = getMoneyOfRoomAndIdol() +  getMoneyOfRoomAndIdol()/2 * (getTimeUseService() - 2);
+        }
+        return money;
     }
 
     @Override
@@ -67,7 +93,6 @@ public class Bill {
         return "Bill{" +
                 "code='" + code + '\'' +
                 ", idol=" + idol +
-                ", money=" + money +
                 ", checkin=" + checkin +
                 ", checkout=" + checkout +
                 '}';
