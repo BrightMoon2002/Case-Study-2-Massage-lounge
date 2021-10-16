@@ -11,29 +11,30 @@ import model.room.Room;
 import model.room.RoomFactory;
 import model.room.RoomType;
 
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class Main {
     public static void main(String[] args) {
-//        Idol idolA = IdolFactory.getIdol(IdolType.IDOLA);
-//        Idol idolB = IdolFactory.getIdol(IdolType.IDOLB);
-//        Idol idolC = IdolFactory.getIdol(IdolType.IDOLC);
-//        System.out.println(idolA);
-//        System.out.println(idolB);
-//        System.out.println(idolC);
-//        Room room1 = RoomFactory.getRoom(RoomType.KINGROOM);
-//        System.out.println(room1);
+        Idol idolA = IdolFactory.getIdol(IdolType.IDOLA);
+        Idol idolB = IdolFactory.getIdol(IdolType.IDOLB);
+        Idol idolC = IdolFactory.getIdol(IdolType.IDOLC);
+        IdolManager idolManager = new IdolManager();
+        idolManager.saveList(idolA);
+        idolManager.saveList(idolB);
+        idolManager.saveList(idolC);
+        idolManager.findAll();
 
-        List<Room> idolList = new ArrayList<>();
-        RoomManager idolManager = new RoomManager();
+        RoomManager roomManager = new RoomManager();
         Room room  = RoomFactory.getRoom(RoomType.KINGROOM);
-        idolManager.saveList(room);
+        roomManager.saveList(room);
         Room room1  = RoomFactory.getRoom(RoomType.VIPROOM);
-        idolManager.saveList(room1);
+        roomManager.saveList(room1);
 
-
+        Customer customer = new Customer("Jame", "999", "0986123456");
+        CustomerManager customerManager = new CustomerManager();
+        customerManager.saveList(customer);
+        customerManager.showAllList();
+        roomManager.showAllList();
         idolManager.showAllList();
 
     }
