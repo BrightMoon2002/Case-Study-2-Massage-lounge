@@ -1,7 +1,5 @@
 package model.room;
 
-import model.Customer;
-import model.idol.Idol;
 
 public class RoomKing extends Room {
     public RoomKing(String code, double price, boolean status) {

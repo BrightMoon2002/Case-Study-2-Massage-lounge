@@ -50,4 +50,13 @@ public abstract class Room extends BaseRoom {
     public void setStatus(boolean status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "code='" + code + '\'' +
+                ", price=" + price +
+                ", status=" + status +
+                "} ";
+    }
 }
