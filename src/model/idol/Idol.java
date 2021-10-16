@@ -9,6 +9,7 @@ public class Idol extends BaseIdol {
     private double tip;
     private boolean status;
     private int countChecker;
+    private String id;
 
     public Idol() {
     }
@@ -24,12 +25,12 @@ public class Idol extends BaseIdol {
         this.countChecker = countChecker;
     }
 
-    public Idol(String stageName, String dOB, double height, String bodyMeasurement) {
+    public Idol(String stageName, String dOB, double height, String bodyMeasurement, String id) {
         this.stageName = stageName;
         this.dOB = dOB;
         this.height = height;
         this.bodyMeasurements = bodyMeasurement;
-
+        this.id = id;
     }
 
     public String getStageName() {
@@ -97,9 +98,20 @@ public class Idol extends BaseIdol {
     }
 
     @Override
+    public void setID(String id) {
+        this.id = id;
+    }
+
+    @Override
+   public String getId() {
+        return this.id;
+    }
+
+    @Override
     public String toString() {
         return "Idol{" +
                 "stageName='" + stageName + '\'' +
+                ", id=" + id +
                 ", dOB='" + dOB + '\'' +
                 ", height=" + height +
                 ", bodyMeasurements='" + bodyMeasurements + '\'' +

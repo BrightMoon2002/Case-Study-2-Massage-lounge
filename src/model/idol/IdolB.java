@@ -9,8 +9,8 @@ public class IdolB extends Idol{
         super(stageName, dOB, height, bodyMeasurements, service, price, status, countChecker);
     }
 
-    public IdolB(String stageName, String dOB, double height, String bodyMeasurement) {
-        super(stageName, dOB, height, bodyMeasurement);
+    public IdolB(String stageName, String dOB, double height, String bodyMeasurement, String id) {
+        super(stageName, dOB, height, bodyMeasurement,  id);
         super.setService("HJ,BJ");
         super.setTip(300);
         super.setStatus(false);

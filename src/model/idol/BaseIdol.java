@@ -29,4 +29,7 @@ public abstract class BaseIdol {
     abstract int getCountChecker();
 
     abstract void setCountChecker(int countChecker);
+
+    abstract void setID(String id);
+    abstract String getId();
 }

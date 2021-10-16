@@ -9,8 +9,8 @@ public class IdolC extends Idol{
         super(stageName, dOB, height, bodyMeasurements, service, price, status, countChecker);
     }
 
-    public IdolC(String stageName, String dOB, double height, String bodyMeasurement) {
-        super(stageName, dOB, height, bodyMeasurement);
+    public IdolC(String stageName, String dOB, double height, String bodyMeasurement, String id) {
+        super(stageName, dOB, height, bodyMeasurement, id);
         this.setTip(200);
         this.setService("Hj");
         super.setCountChecker(0);
