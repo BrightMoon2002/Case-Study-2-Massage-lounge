@@ -1,6 +1,8 @@
 package view;
 
+import control.CustomerManager;
 import control.IdolManager;
+import model.Customer;
 import model.idol.Idol;
 import model.idol.IdolFactory;
 import model.idol.IdolType;
@@ -23,12 +25,13 @@ public class Main {
 //        Room room1 = RoomFactory.getRoom(RoomType.KINGROOM);
 //        System.out.println(room1);
 
-        List<Idol> idolList = new ArrayList<>();
-        IdolManager idolManager = new IdolManager();
-        Idol idol = IdolFactory.getIdol(IdolType.IDOLA);
-        idolManager.saveList(idol);
-        Idol idol1 = IdolFactory.getIdol(IdolType.IDOLB);
-        idolManager.saveList(idol1);
+        List<Customer> idolList = new ArrayList<>();
+        CustomerManager idolManager = new CustomerManager();
+        Customer customer = new Customer("John", "12", "0986123456");
+        idolManager.saveList(customer);
+        Customer customer1 = new Customer("J3", "12", "0986123456");
+        idolManager.saveList(customer);
+
         idolManager.showAllList();
 
     }
