@@ -11,7 +11,7 @@ public class IdolC extends Idol{
 
     public IdolC(String stageName, String dOB, double height, String bodyMeasurement) {
         super(stageName, dOB, height, bodyMeasurement);
-        this.setPrice(200);
+        this.setTip(200);
         this.setService("Hj");
         super.setCountChecker(0);
         super.setStatus(false);
@@ -68,13 +68,13 @@ public class IdolC extends Idol{
     }
 
     @Override
-    public double getPrice() {
-        return super.getPrice();
+    public double getTip() {
+        return super.getTip();
     }
 
     @Override
-    public void setPrice(double price) {
-        super.setPrice(price);
+    public void setTip(double price) {
+        super.setTip(price);
     }
 
     @Override

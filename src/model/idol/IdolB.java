@@ -12,7 +12,7 @@ public class IdolB extends Idol{
     public IdolB(String stageName, String dOB, double height, String bodyMeasurement) {
         super(stageName, dOB, height, bodyMeasurement);
         super.setService("HJ,BJ");
-        super.setPrice(300);
+        super.setTip(300);
         super.setStatus(false);
         super.setCountChecker(0);
     }
@@ -68,13 +68,13 @@ public class IdolB extends Idol{
     }
 
     @Override
-    public double getPrice() {
-        return super.getPrice();
+    public double getTip() {
+        return super.getTip();
     }
 
     @Override
-    public void setPrice(double price) {
-        super.setPrice(price);
+    public void setTip(double tip) {
+        super.setTip(tip);
     }
 
     @Override

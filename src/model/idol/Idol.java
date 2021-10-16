@@ -6,20 +6,20 @@ public class Idol extends BaseIdol {
     private double height;
     private String bodyMeasurements;
     private String service;
-    private double price;
+    private double tip;
     private boolean status;
     private int countChecker;
 
     public Idol() {
     }
 
-    public Idol(String stageName, String dOB, double height, String bodyMeasurements, String service, double price, boolean status, int countChecker) {
+    public Idol(String stageName, String dOB, double height, String bodyMeasurements, String service, double tip, boolean status, int countChecker) {
         this.stageName = stageName;
         this.dOB = dOB;
         this.height = height;
         this.bodyMeasurements = bodyMeasurements;
         this.service = service;
-        this.price = price;
+        this.tip = tip;
         this.status = status;
         this.countChecker = countChecker;
     }
@@ -72,12 +72,12 @@ public class Idol extends BaseIdol {
         this.service = service;
     }
 
-    public double getPrice() {
-        return price;
+    public double getTip() {
+        return tip;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setTip(double Tip) {
+        this.tip = tip;
     }
 
     public boolean isStatus() {
@@ -104,7 +104,7 @@ public class Idol extends BaseIdol {
                 ", height=" + height +
                 ", bodyMeasurements='" + bodyMeasurements + '\'' +
                 ", service='" + service + '\'' +
-                ", price=" + price +
+                ", price=" + tip +
                 ", status=" + status +
                 ", countChecker=" + countChecker +
                 '}';

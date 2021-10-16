@@ -18,9 +18,9 @@ public abstract class BaseIdol {
 
     abstract void setService(String service);
 
-    abstract public double getPrice();
+    abstract public double getTip();
 
-    abstract void setPrice(double price);
+    abstract void setTip(double tip);
 
     abstract boolean isStatus();
 

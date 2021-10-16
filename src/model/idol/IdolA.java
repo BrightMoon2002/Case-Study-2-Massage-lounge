@@ -14,7 +14,7 @@ public class IdolA extends Idol{
     public IdolA(String stageName, String dOB, double height, String bodyMeasurements) {
         super(stageName, dOB, height, bodyMeasurements);
         super.setService("Full Service");
-        super.setPrice(500);
+        super.setTip(500);
         super.setStatus(false);
         super.setCountChecker(0);
     }
