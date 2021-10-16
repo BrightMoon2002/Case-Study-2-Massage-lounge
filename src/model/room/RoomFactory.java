@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class RoomFactory {
     private RoomFactory() {}
     public static final Room getRoom(RoomType roomType) {
-        System.out.println("Enter the stage code of room:");
+        System.out.println("Enter the code of room:");
         Scanner inputCode = new Scanner(System.in);
         String code = inputCode.nextLine();
        switch (roomType) {

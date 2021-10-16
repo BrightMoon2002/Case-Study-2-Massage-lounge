@@ -2,6 +2,7 @@ package view;
 
 import control.CustomerManager;
 import control.IdolManager;
+import control.RoomManager;
 import model.Customer;
 import model.idol.Idol;
 import model.idol.IdolFactory;
@@ -25,12 +26,13 @@ public class Main {
 //        Room room1 = RoomFactory.getRoom(RoomType.KINGROOM);
 //        System.out.println(room1);
 
-        List<Customer> idolList = new ArrayList<>();
-        CustomerManager idolManager = new CustomerManager();
-        Customer customer = new Customer("John", "12", "0986123456");
-        idolManager.saveList(customer);
-        Customer customer1 = new Customer("J3", "12", "0986123456");
-        idolManager.saveList(customer);
+        List<Room> idolList = new ArrayList<>();
+        RoomManager idolManager = new RoomManager();
+        Room room  = RoomFactory.getRoom(RoomType.KINGROOM);
+        idolManager.saveList(room);
+        Room room1  = RoomFactory.getRoom(RoomType.VIPROOM);
+        idolManager.saveList(room1);
+
 
         idolManager.showAllList();
 
