@@ -8,7 +8,7 @@ public class Idol extends BaseIdol {
     private String service;
     private double price;
     private boolean status;
-    private int countChecker = 0;
+    private int countChecker;
 
     public Idol() {
     }
@@ -24,13 +24,12 @@ public class Idol extends BaseIdol {
         this.countChecker = countChecker;
     }
 
-    public Idol(String stageName, String dOB, double height, String bodyMeasurements, boolean status, int countChecker) {
+    public Idol(String stageName, String dOB, double height, String bodyMeasurement) {
         this.stageName = stageName;
         this.dOB = dOB;
         this.height = height;
         this.bodyMeasurements = bodyMeasurements;
-        this.status = status;
-        this.countChecker = countChecker;
+
     }
 
     public String getStageName() {

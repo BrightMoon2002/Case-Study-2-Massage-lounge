@@ -11,10 +11,12 @@ public class IdolA extends Idol{
         super(stageName, dOB, height, bodyMeasurements, service, price, status, countChecker);
     }
 
-    public IdolA(String stageName, String dOB, double height, String bodyMeasurements, boolean status, int countChecker) {
-        super(stageName, dOB, height, bodyMeasurements, status, countChecker);
+    public IdolA(String stageName, String dOB, double height, String bodyMeasurements) {
+        super(stageName, dOB, height, bodyMeasurements);
         super.setService("Full Service");
         super.setPrice(500);
+        super.setStatus(false);
+        super.setCountChecker(0);
     }
 
 
