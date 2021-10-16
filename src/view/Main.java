@@ -8,9 +8,10 @@ import model.idol.IdolType;
 public class Main {
     public static void main(String[] args) {
         Idol idolA = IdolFactory.getIdol(IdolType.IDOLA);
-        idolA.setStageName("Akira");
-        idolA.setdOB("1992");
-        idolA.setBodyMeasurements("90-60-90");
+        Idol idolB = IdolFactory.getIdol(IdolType.IDOLB);
+        Idol idolC = IdolFactory.getIdol(IdolType.IDOLC);
         System.out.println(idolA);
+        System.out.println(idolB);
+        System.out.println(idolC);
     }
 }

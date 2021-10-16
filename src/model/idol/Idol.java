@@ -28,7 +28,7 @@ public class Idol extends BaseIdol {
         this.stageName = stageName;
         this.dOB = dOB;
         this.height = height;
-        this.bodyMeasurements = bodyMeasurements;
+        this.bodyMeasurements = bodyMeasurement;
 
     }
 

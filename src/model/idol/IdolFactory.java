@@ -22,9 +22,9 @@ public class IdolFactory {
             case IDOLA:
                 return  new IdolA(stageName, dOB, height, body);
             case IDOLB:
-                return new IdolB();
+                return new IdolB(stageName, dOB, height, body);
             case IDOLC:
-                return new IdolC();
+                return new IdolC(stageName, dOB, height, body);
             default:
                  throw new IllegalArgumentException("This idol type is unsupported");
         }
