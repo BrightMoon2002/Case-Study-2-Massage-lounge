@@ -10,6 +10,22 @@ public class BillManager implements IGeneralManager<Bill> {
 private List<Bill> billList = new ArrayList<>();
 private FileManagerBill fileManagerBill;
 
+    public List<Bill> getBillList() {
+        return billList;
+    }
+
+    public void setBillList(List<Bill> billList) {
+        this.billList = billList;
+    }
+
+    public FileManagerBill getFileManagerBill() {
+        return fileManagerBill;
+    }
+
+    public void setFileManagerBill(FileManagerBill fileManagerBill) {
+        this.fileManagerBill = fileManagerBill;
+    }
+
     @Override
     public List<Bill> findAll() {
         return billList;

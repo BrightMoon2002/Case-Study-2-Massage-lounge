@@ -16,8 +16,9 @@ public class Bill {
     public Bill() {
     }
 
-    public Bill(String code, Idol idol, LocalTime checkin, LocalTime checkout) {
+    public Bill(String code, Room room, Idol idol, LocalTime checkin, LocalTime checkout) {
         this.code = code;
+        this.room = room;
         this.idol = idol;
         this.checkin = checkin;
         this.setExpiryDate(checkin.plusHours(2));

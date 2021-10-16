@@ -18,12 +18,17 @@ private FileManagerBill() {}
 
     @Override
     public void writeList(List<Bill> list) {
+
+        if (list == null) {
+            list = new ArrayList<>();
+        }
         File file = new File("BillList.txt");
         try {
             OutputStream os = new FileOutputStream(file);
             ObjectOutputStream ois = new ObjectOutputStream(os);
             ois.writeObject(list);
-        } catch (FileNotFoundException e) {
+        }
+        catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
@@ -32,7 +37,7 @@ private FileManagerBill() {}
 
     @Override
     public List<Bill> readList() {
-        List<Bill> billList = new ArrayList<>();
+        List<Bill> billList = null;
         File file = new File("BillList.txt");
         if (!file.exists()) {
             try {

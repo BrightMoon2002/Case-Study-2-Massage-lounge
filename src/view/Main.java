@@ -4,6 +4,7 @@ import control.BillManager;
 import control.CustomerManager;
 import control.IdolManager;
 import control.RoomManager;
+import model.Bill;
 import model.Customer;
 import model.idol.Idol;
 import model.idol.IdolFactory;
@@ -11,7 +12,9 @@ import model.idol.IdolType;
 import model.room.Room;
 import model.room.RoomFactory;
 import model.room.RoomType;
+import storage.FileManagerBill;
 
+import java.time.LocalTime;
 
 
 public class Main {
@@ -39,6 +42,13 @@ public class Main {
         customerManager.showAllList();
         roomManager.showAllList();
         idolManager.showAllList();
+        BillManager billManager = new BillManager();
+        FileManagerBill fileManagerBill = FileManagerBill.getInstance();
+        fileManagerBill.readList();
+
+        Bill bill = new Bill("12345", room1, idolA, LocalTime.now(), LocalTime.now());
+        billManager.saveList(bill);
+
 
     }
 }
