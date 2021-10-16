@@ -2,8 +2,6 @@ package model;
 
 import model.idol.Idol;
 import model.room.Room;
-
-import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Bill {
@@ -22,13 +20,29 @@ public class Bill {
         this.code = code;
         this.idol = idol;
         this.checkin = checkin;
-        this.expiryDate = checkin.plusHours(2);
+        this.setExpiryDate(checkin.plusHours(2));
         this.checkout = checkout;
 
     }
 
     public String getCode() {
         return code;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+
+    public LocalTime getExpiryDate() {
+        return expiryDate;
+    }
+
+    public void setExpiryDate(LocalTime expiryDate) {
+        this.expiryDate = expiryDate;
     }
 
     public void setCode(String code) {
@@ -69,7 +83,7 @@ public class Bill {
     }
 
     public double getMoneyOfRoomAndIdol() {
-        return (room.getPrice() + idol.getPrice());
+        return (room.getPrice() + idol.getTip());
     }
 
     public long getTimeUseService() {
