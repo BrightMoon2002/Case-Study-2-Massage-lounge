@@ -1,5 +1,6 @@
 package view;
 
+import control.IdolManager;
 import model.idol.Idol;
 import model.idol.IdolFactory;
 import model.idol.IdolType;
@@ -7,8 +8,8 @@ import model.room.Room;
 import model.room.RoomFactory;
 import model.room.RoomType;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Main {
@@ -22,11 +23,13 @@ public class Main {
 //        Room room1 = RoomFactory.getRoom(RoomType.KINGROOM);
 //        System.out.println(room1);
 
-      LocalTime localTime = LocalTime.now();
-      LocalTime localTime1 = localTime.plusHours(2);
-        System.out.println(localTime1);
-        System.out.println(localTime);
-        long time = localTime1.getHour() - (localTime.getHour());
-        System.out.println(time);
+        List<Idol> idolList = new ArrayList<>();
+        IdolManager idolManager = new IdolManager();
+        Idol idol = IdolFactory.getIdol(IdolType.IDOLA);
+        idolManager.saveList(idol);
+        Idol idol1 = IdolFactory.getIdol(IdolType.IDOLB);
+        idolManager.saveList(idol1);
+        idolManager.showAllList();
+
     }
 }

@@ -77,7 +77,7 @@ public class Idol extends BaseIdol {
         return tip;
     }
 
-    public void setTip(double Tip) {
+    public void setTip(double tip) {
         this.tip = tip;
     }
 
@@ -98,7 +98,7 @@ public class Idol extends BaseIdol {
     }
 
     @Override
-    public void setID(String id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -116,7 +116,7 @@ public class Idol extends BaseIdol {
                 ", height=" + height +
                 ", bodyMeasurements='" + bodyMeasurements + '\'' +
                 ", service='" + service + '\'' +
-                ", price=" + tip +
+                ", tip=" + tip +
                 ", status=" + status +
                 ", countChecker=" + countChecker +
                 '}';
