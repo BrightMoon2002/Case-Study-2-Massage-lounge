@@ -3,15 +3,19 @@ package model.room;
 import model.Customer;
 import model.idol.Idol;
 
-public abstract class Room {
+public abstract class Room extends BaseRoom {
     private Customer customer;
     private Idol idol;
     private String code;
+    private double price;
 
     public Room(Customer customer, Idol idol, String code) {
         this.customer = customer;
         this.idol = idol;
         this.code = code;
+    }
+
+    public Room() {
     }
 
     public Customer getCustomer() {
@@ -36,6 +40,16 @@ public abstract class Room {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    @Override
+    double getPrice() {
+        return 0;
+    }
+
+    @Override
+    void setPrice(double price) {
+
     }
 
     @Override
