@@ -4,60 +4,50 @@ import model.Customer;
 import model.idol.Idol;
 
 public abstract class Room extends BaseRoom {
-    private Customer customer;
-    private Idol idol;
+
     private String code;
     private double price;
+    private boolean status;
 
-    public Room(Customer customer, Idol idol, String code) {
-        this.customer = customer;
-        this.idol = idol;
+    public Room(String code, double price, boolean status) {
         this.code = code;
+        this.price = price;
+        this.status = status;
     }
 
     public Room() {
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public Room(String code) {
+        this.code = code;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    public Idol getIdol() {
-        return idol;
-    }
-
-    public void setIdol(Idol idol) {
-        this.idol = idol;
-    }
-
+    @Override
     public String getCode() {
         return code;
     }
 
+    @Override
     public void setCode(String code) {
         this.code = code;
     }
 
     @Override
-    double getPrice() {
-        return 0;
+    public double getPrice() {
+        return price;
     }
 
     @Override
-    void setPrice(double price) {
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
+    public boolean isStatus() {
+        return status;
     }
 
     @Override
-    public String toString() {
-        return "Room{" +
-                "customer=" + customer +
-                ", idol=" + idol +
-                ", code='" + code + '\'' +
-                '}';
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

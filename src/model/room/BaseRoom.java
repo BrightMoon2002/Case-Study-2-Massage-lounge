@@ -4,13 +4,6 @@ import model.Customer;
 import model.idol.Idol;
 
 public abstract class BaseRoom {
-    abstract Customer getCustomer();
-
-    abstract void setCustomer(Customer customer);
-
-    abstract Idol getIdol();
-
-    abstract void setIdol(Idol idol);
 
     abstract String getCode();
 
@@ -19,4 +12,7 @@ public abstract class BaseRoom {
     abstract double getPrice();
 
     abstract void setPrice(double price);
+
+    abstract boolean getStatus();
+    abstract void setStatus (boolean status);
 }
