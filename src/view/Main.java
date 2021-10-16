@@ -1,5 +1,6 @@
 package view;
 
+import control.BillManager;
 import control.CustomerManager;
 import control.IdolManager;
 import control.RoomManager;
@@ -15,6 +16,8 @@ import model.room.RoomType;
 
 public class Main {
     public static void main(String[] args) {
+
+
         Idol idolA = IdolFactory.getIdol(IdolType.IDOLA);
         Idol idolB = IdolFactory.getIdol(IdolType.IDOLB);
         Idol idolC = IdolFactory.getIdol(IdolType.IDOLC);

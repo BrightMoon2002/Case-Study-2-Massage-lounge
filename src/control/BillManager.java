@@ -1,12 +1,14 @@
 package control;
 
 import model.Bill;
+import storage.FileManagerBill;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BillManager implements IGeneralManager<Bill> {
 private List<Bill> billList = new ArrayList<>();
+private FileManagerBill fileManagerBill;
 
     @Override
     public List<Bill> findAll() {
@@ -16,16 +18,20 @@ private List<Bill> billList = new ArrayList<>();
     @Override
     public void saveList(Bill bill) {
         billList.add(bill);
+        fileManagerBill.writeList(billList);
+
     }
 
     @Override
     public void removeByIndex(int index) {
         billList.remove(index);
+        fileManagerBill.writeList(billList);
     }
 
     @Override
     public void updateByIndex(int index, Bill bill) {
         billList.set(index, bill);
+        fileManagerBill.writeList(billList);
     }
 
     @Override
