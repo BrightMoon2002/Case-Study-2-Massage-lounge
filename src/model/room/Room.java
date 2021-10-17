@@ -2,7 +2,7 @@ package model.room;
 
 import java.io.Serializable;
 
-public abstract class Room extends BaseRoom implements Serializable {
+public class Room extends BaseRoom implements Serializable {
 
     private String code;
     private double price;
@@ -39,6 +39,11 @@ public abstract class Room extends BaseRoom implements Serializable {
     @Override
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    boolean getStatus() {
+        return false;
     }
 
     public boolean isStatus() {
