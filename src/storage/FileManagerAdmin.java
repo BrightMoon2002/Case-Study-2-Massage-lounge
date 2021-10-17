@@ -17,7 +17,7 @@ public class FileManagerAdmin extends BaseFileManager<Admin> {
     }
 
     @Override
-    void writeList(List<Admin> list) {
+    public void writeList(List<Admin> list) {
         if (list == null) {
             list = new ArrayList<>();
         }
@@ -36,7 +36,7 @@ public class FileManagerAdmin extends BaseFileManager<Admin> {
     }
 
     @Override
-    List<Admin> readList() {
+   public List<Admin> readList() {
         List<Admin> adminList = new ArrayList<>();
         File file = new File("listAdmin.txt");
         if (!file.exists()) {
