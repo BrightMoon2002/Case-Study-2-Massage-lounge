@@ -1,7 +1,9 @@
 package model.room;
 
 
-public class RoomKing extends Room {
+import java.io.Serializable;
+
+public class RoomKing extends Room implements Serializable {
     public RoomKing(String code, double price, boolean status) {
         super(code, price, status);
     }

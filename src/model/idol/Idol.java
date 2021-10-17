@@ -1,6 +1,8 @@
 package model.idol;
 
-public class Idol extends BaseIdol {
+import java.io.Serializable;
+
+public class Idol extends BaseIdol implements Serializable {
     private String stageName;
     private String dOB;
     private double height;

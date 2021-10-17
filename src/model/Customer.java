@@ -1,9 +1,12 @@
 package model;
 
-public class Customer {
+import java.io.Serializable;
+
+public class Customer implements Serializable {
     private String fullName;
     private String id;
     private String mobile;
+    private String password;
 
     public Customer() {
     }
@@ -12,6 +15,21 @@ public class Customer {
         this.fullName = fullName;
         this.id = id;
         this.mobile = mobile;
+    }
+
+    public Customer(String fullName, String id, String mobile, String password) {
+        this.fullName = fullName;
+        this.id = id;
+        this.mobile = mobile;
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getFullName() {
@@ -36,6 +54,10 @@ public class Customer {
 
     public void setMobile(String mobile) {
         this.mobile = mobile;
+    }
+    public void searchCustomerById(String id) {
+        Customer customer = null;
+
     }
 
     @Override

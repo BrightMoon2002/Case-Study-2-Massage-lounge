@@ -14,7 +14,10 @@ import model.room.RoomFactory;
 import model.room.RoomType;
 import storage.FileManagerBill;
 
+import java.io.IOException;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Main {
@@ -44,7 +47,11 @@ public class Main {
         idolManager.showAllList();
         BillManager billManager = new BillManager();
         FileManagerBill fileManagerBill = FileManagerBill.getInstance();
-        fileManagerBill.readList();
+        billManager.setFileManagerBill(fileManagerBill);
+        List<Bill> billList = new ArrayList<>();
+        billManager.setBillList(billList);
+       fileManagerBill.readList();
+
 
         Bill bill = new Bill("12345", room1, idolA, LocalTime.now(), LocalTime.now());
         billManager.saveList(bill);

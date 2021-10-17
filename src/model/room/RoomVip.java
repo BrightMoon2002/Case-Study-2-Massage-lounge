@@ -1,8 +1,9 @@
 package model.room;
 
 
+import java.io.Serializable;
 
-public class RoomVip extends Room{
+public class RoomVip extends Room implements Serializable {
 
     @Override
     boolean getStatus() {

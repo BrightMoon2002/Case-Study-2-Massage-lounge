@@ -1,6 +1,8 @@
 package model.idol;
 
-public class IdolA extends Idol{
+import java.io.Serializable;
+
+public class IdolA extends Idol implements Serializable {
 
 
 

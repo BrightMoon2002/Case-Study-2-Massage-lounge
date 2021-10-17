@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileManagerBill extends BaseFileManager<Bill>{
+public class FileManagerBill extends BaseFileManager<Bill> {
     private static FileManagerBill fileManagerBill;
 private FileManagerBill() {}
     public static FileManagerBill getInstance() {
@@ -15,30 +15,38 @@ private FileManagerBill() {}
     }
     return fileManagerBill;
     }
-
     @Override
     public void writeList(List<Bill> list) {
 
         if (list == null) {
             list = new ArrayList<>();
         }
-        File file = new File("BillList.txt");
+        File file = new File("listBill.txt");
         try {
-            OutputStream os = new FileOutputStream(file);
-            ObjectOutputStream ois = new ObjectOutputStream(os);
-            ois.writeObject(list);
+            FileOutputStream fos = new FileOutputStream(file);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(list);
+            oos.close();
+            fos.close();
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+//        File file = new File("ListBill.txt");
+//        FileOutputStream fos = new FileOutputStream(file);
+//        ObjectOutputStream oos = new ObjectOutputStream(fos);
+//        oos.writeObject(list);
+//        oos.close();
+//        fos.close();
+
     }
 
     @Override
-    public List<Bill> readList() {
-        List<Bill> billList = null;
-        File file = new File("BillList.txt");
+    public List<Bill> readList()  {
+        List<Bill> billList = new ArrayList<>();
+        File file = new File("listBill.txt");
         if (!file.exists()) {
             try {
                 file.createNewFile();
@@ -47,15 +55,24 @@ private FileManagerBill() {}
             }
         }
         if (file.length() == 0) {
-            return billList;
+            return new ArrayList<>();
         }
         try {
-            InputStream is = new FileInputStream(file);
+            FileInputStream is = new FileInputStream(file);
             ObjectInputStream ois = new ObjectInputStream(is);
             billList = (List<Bill>) ois.readObject();
+            ois.close();
+            is.close();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return billList;
+//        File file = new File("ListBill.txt");
+//        FileInputStream fis = new FileInputStream(file);
+//        ObjectInputStream ois = new ObjectInputStream(fis);
+//        List<Bill> list = (List<Bill>) ois.readObject();
+//        ois.close();
+//        fis.close();
+//        return list;
     }
 }

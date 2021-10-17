@@ -3,7 +3,9 @@ package model.room;
 import model.Customer;
 import model.idol.Idol;
 
-public abstract class Room extends BaseRoom {
+import java.io.Serializable;
+
+public abstract class Room extends BaseRoom implements Serializable {
 
     private String code;
     private double price;

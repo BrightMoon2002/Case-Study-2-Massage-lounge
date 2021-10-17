@@ -2,9 +2,11 @@ package model;
 
 import model.idol.Idol;
 import model.room.Room;
+
+import java.io.Serializable;
 import java.time.LocalTime;
 
-public class Bill {
+public class Bill implements Serializable {
     private String code;
     private Idol idol;
     private Room room;
