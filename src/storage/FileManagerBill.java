@@ -34,12 +34,6 @@ private FileManagerBill() {}
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        File file = new File("ListBill.txt");
-//        FileOutputStream fos = new FileOutputStream(file);
-//        ObjectOutputStream oos = new ObjectOutputStream(fos);
-//        oos.writeObject(list);
-//        oos.close();
-//        fos.close();
 
     }
 
@@ -67,12 +61,5 @@ private FileManagerBill() {}
             e.printStackTrace();
         }
         return billList;
-//        File file = new File("ListBill.txt");
-//        FileInputStream fis = new FileInputStream(file);
-//        ObjectInputStream ois = new ObjectInputStream(fis);
-//        List<Bill> list = (List<Bill>) ois.readObject();
-//        ois.close();
-//        fis.close();
-//        return list;
     }
 }
