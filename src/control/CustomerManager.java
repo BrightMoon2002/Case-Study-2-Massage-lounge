@@ -1,12 +1,30 @@
 package control;
 
 import model.Customer;
+import storage.FileManagerCustomer;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerManager implements IGeneralManager<Customer> {
     private List<Customer> customerList = new ArrayList<>();
+    private FileManagerCustomer fileManagerCustomer;
+
+    public List<Customer> getCustomerList() {
+        return customerList;
+    }
+
+    public void setCustomerList(List<Customer> customerList) {
+        this.customerList = customerList;
+    }
+
+    public FileManagerCustomer getFileManagerCustomer() {
+        return fileManagerCustomer;
+    }
+
+    public void setFileManagerCustomer(FileManagerCustomer fileManagerCustomer) {
+        this.fileManagerCustomer = fileManagerCustomer;
+    }
 
     @Override
     public List<Customer> findAll() {

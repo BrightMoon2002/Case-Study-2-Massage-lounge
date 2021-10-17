@@ -13,6 +13,9 @@ import model.room.Room;
 import model.room.RoomFactory;
 import model.room.RoomType;
 import storage.FileManagerBill;
+import storage.FileManagerCustomer;
+import storage.FileManagerIdol;
+import storage.FileManagerRoom;
 
 import java.io.IOException;
 import java.time.LocalTime;
@@ -45,6 +48,8 @@ public class Main {
         customerManager.showAllList();
         roomManager.showAllList();
         idolManager.showAllList();
+
+
         BillManager billManager = new BillManager();
         FileManagerBill fileManagerBill = FileManagerBill.getInstance();
         billManager.setFileManagerBill(fileManagerBill);
@@ -52,6 +57,19 @@ public class Main {
         billManager.setBillList(billList);
        fileManagerBill.readList();
 
+
+        FileManagerCustomer fileManagerCustomer = FileManagerCustomer.getInstance();
+        customerManager.setFileManagerCustomer(fileManagerCustomer);
+        List<Customer> customerList = new ArrayList<>();
+        customerManager.setCustomerList(customerList);
+
+        FileManagerIdol fileManagerIdol =  FileManagerIdol.getInstance();
+        idolManager.setFileManagerIdol(fileManagerIdol);
+        List<Idol> idolList = new ArrayList<>();
+        idolManager.setIdolList(idolList);
+
+        FileManagerRoom fileManagerRoom = FileManagerRoom.getInstance();
+        roomManager.set
 
         Bill bill = new Bill("12345", room1, idolA, LocalTime.now(), LocalTime.now());
         billManager.saveList(bill);

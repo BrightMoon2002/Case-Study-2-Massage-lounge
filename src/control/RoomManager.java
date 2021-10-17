@@ -2,13 +2,30 @@ package control;
 
 
 import model.room.Room;
+import storage.FileManagerRoom;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RoomManager implements IGeneralManager<Room>{
     List<Room> roomList = new ArrayList<>();
+    private FileManagerRoom fileManagerRoom;
 
+    public List<Room> getRoomList() {
+        return roomList;
+    }
+
+    public void setRoomList(List<Room> roomList) {
+        this.roomList = roomList;
+    }
+
+    public FileManagerRoom getFileManagerRoom() {
+        return fileManagerRoom;
+    }
+
+    public void setFileManagerRoom(FileManagerRoom fileManagerRoom) {
+        this.fileManagerRoom = fileManagerRoom;
+    }
 
     @Override
     public List<Room> findAll() {

@@ -1,6 +1,8 @@
 package control;
 
 import model.idol.Idol;
+import storage.FileManagerCustomer;
+import storage.FileManagerIdol;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +10,23 @@ import java.util.List;
 public class IdolManager implements IGeneralManager<Idol> {
 
     private List<Idol> idolList = new ArrayList<>();
+    private FileManagerIdol fileManagerIdol;
+
+    public List<Idol> getIdolList() {
+        return idolList;
+    }
+
+    public void setIdolList(List<Idol> idolList) {
+        this.idolList = idolList;
+    }
+
+    public FileManagerIdol getFileManagerIdol() {
+        return fileManagerIdol;
+    }
+
+    public void setFileManagerIdol(FileManagerIdol fileManagerIdol) {
+        this.fileManagerIdol = fileManagerIdol;
+    }
 
     @Override
     public List findAll() {
