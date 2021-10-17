@@ -1,8 +1,5 @@
 package model.room;
 
-import model.Customer;
-import model.idol.Idol;
-
 public abstract class BaseRoom {
 
     abstract String getCode();

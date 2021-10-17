@@ -1,15 +1,14 @@
 package control;
 
 import model.idol.Idol;
-import storage.FileManagerCustomer;
+
 import storage.FileManagerIdol;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class IdolManager implements IGeneralManager<Idol> {
 
-    private List<Idol> idolList = new ArrayList<>();
+    private List<Idol> idolList;
     private FileManagerIdol fileManagerIdol;
 
     public List<Idol> getIdolList() {
@@ -36,16 +35,19 @@ public class IdolManager implements IGeneralManager<Idol> {
     @Override
     public void saveList(Idol idol) {
         idolList.add(idol);
+        fileManagerIdol.writeList(idolList);
     }
 
     @Override
     public void removeByIndex(int index) {
         idolList.remove(index);
+        fileManagerIdol.writeList(idolList);
     }
 
     @Override
     public void updateByIndex(int index, Idol idol) {
         idolList.set(index, idol);
+        fileManagerIdol.writeList(idolList);
     }
 
     @Override

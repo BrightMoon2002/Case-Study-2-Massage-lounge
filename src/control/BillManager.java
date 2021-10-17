@@ -3,8 +3,6 @@ package control;
 import model.Bill;
 import storage.FileManagerBill;
 
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class BillManager implements IGeneralManager<Bill> {

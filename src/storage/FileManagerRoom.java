@@ -20,7 +20,7 @@ public class FileManagerRoom extends BaseFileManager<Room> {
 
 
     @Override
-    void writeList(List<Room> list) {
+   public void writeList(List<Room> list) {
         if (list == null) {
             list = new ArrayList<>();
         }

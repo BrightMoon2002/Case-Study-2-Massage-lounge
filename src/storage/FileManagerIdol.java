@@ -1,6 +1,5 @@
 package storage;
 
-import model.Customer;
 import model.idol.Idol;
 
 import java.io.*;
@@ -18,7 +17,7 @@ public class FileManagerIdol extends BaseFileManager<Idol>{
     }
 
     @Override
-    void writeList(List<Idol> list) {
+   public void writeList(List<Idol> list) {
         if (list == null) {
             list = new ArrayList<>();
         }
@@ -38,7 +37,7 @@ public class FileManagerIdol extends BaseFileManager<Idol>{
     }
 
     @Override
-    List<Idol> readList() {
+   public List<Idol> readList() {
         List<Idol> idolList = new ArrayList<>();
         File file = new File("listIdol.txt");
         if (!file.exists()) {

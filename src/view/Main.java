@@ -5,7 +5,7 @@ import control.CustomerManager;
 import control.IdolManager;
 import control.RoomManager;
 import model.Bill;
-import model.Customer;
+import login.Customer;
 import model.idol.Idol;
 import model.idol.IdolFactory;
 import model.idol.IdolType;
@@ -17,7 +17,6 @@ import storage.FileManagerCustomer;
 import storage.FileManagerIdol;
 import storage.FileManagerRoom;
 
-import java.io.IOException;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,27 +26,14 @@ public class Main {
     public static void main(String[] args) {
 
 
-        Idol idolA = IdolFactory.getIdol(IdolType.IDOLA);
-        Idol idolB = IdolFactory.getIdol(IdolType.IDOLB);
-        Idol idolC = IdolFactory.getIdol(IdolType.IDOLC);
+
         IdolManager idolManager = new IdolManager();
-        idolManager.saveList(idolA);
-        idolManager.saveList(idolB);
-        idolManager.saveList(idolC);
-        idolManager.findAll();
+
 
         RoomManager roomManager = new RoomManager();
-        Room room  = RoomFactory.getRoom(RoomType.KINGROOM);
-        roomManager.saveList(room);
-        Room room1  = RoomFactory.getRoom(RoomType.VIPROOM);
-        roomManager.saveList(room1);
 
-        Customer customer = new Customer("Jame", "999", "0986123456");
         CustomerManager customerManager = new CustomerManager();
-        customerManager.saveList(customer);
-        customerManager.showAllList();
-        roomManager.showAllList();
-        idolManager.showAllList();
+
 
 
         BillManager billManager = new BillManager();
@@ -69,7 +55,29 @@ public class Main {
         idolManager.setIdolList(idolList);
 
         FileManagerRoom fileManagerRoom = FileManagerRoom.getInstance();
-        roomManager.set
+        roomManager.setFileManagerRoom(fileManagerRoom);
+        List<Room> roomList = new ArrayList<>();
+        roomManager.setRoomList(roomList);
+        Idol idolA = IdolFactory.getIdol(IdolType.IDOLA);
+        Idol idolB = IdolFactory.getIdol(IdolType.IDOLB);
+        Idol idolC = IdolFactory.getIdol(IdolType.IDOLC);
+        idolManager.saveList(idolA);
+        idolManager.saveList(idolB);
+        idolManager.saveList(idolC);
+        idolManager.findAll();
+
+        Room room  = RoomFactory.getRoom(RoomType.KINGROOM);
+        roomManager.saveList(room);
+        Room room1  = RoomFactory.getRoom(RoomType.VIPROOM);
+        roomManager.saveList(room1);
+
+
+
+        Customer customer = new Customer("Jame", "999", "0986123456");
+        customerManager.saveList(customer);
+        customerManager.showAllList();
+        roomManager.showAllList();
+        idolManager.showAllList();
 
         Bill bill = new Bill("12345", room1, idolA, LocalTime.now(), LocalTime.now());
         billManager.saveList(bill);

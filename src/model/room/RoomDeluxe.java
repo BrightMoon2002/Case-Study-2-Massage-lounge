@@ -1,8 +1,5 @@
 package model.room;
 
-import model.Customer;
-import model.idol.Idol;
-
 import java.io.Serializable;
 
 public class RoomDeluxe extends Room implements Serializable {

@@ -1,5 +1,6 @@
 package model;
 
+import login.Customer;
 import model.idol.Idol;
 import model.room.Room;
 

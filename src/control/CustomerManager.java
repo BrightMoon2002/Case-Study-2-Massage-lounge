@@ -1,13 +1,13 @@
 package control;
 
-import model.Customer;
+import login.Customer;
 import storage.FileManagerCustomer;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 public class CustomerManager implements IGeneralManager<Customer> {
-    private List<Customer> customerList = new ArrayList<>();
+    private List<Customer> customerList;
     private FileManagerCustomer fileManagerCustomer;
 
     public List<Customer> getCustomerList() {
@@ -34,16 +34,19 @@ public class CustomerManager implements IGeneralManager<Customer> {
     @Override
     public void saveList(Customer customer) {
         customerList.add(customer);
+        fileManagerCustomer.writeList(customerList);
     }
 
     @Override
     public void removeByIndex(int index) {
         customerList.remove(index);
+        fileManagerCustomer.writeList(customerList);
     }
 
     @Override
     public void updateByIndex(int index, Customer customer) {
         customerList.set(index, customer);
+        fileManagerCustomer.writeList(customerList);
     }
 
     @Override

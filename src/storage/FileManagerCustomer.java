@@ -1,7 +1,6 @@
 package storage;
 
-import model.Bill;
-import model.Customer;
+import login.Customer;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -38,7 +37,7 @@ public class FileManagerCustomer extends BaseFileManager<Customer> {
     }
 
     @Override
-    List<Customer> readList() {
+    public List<Customer> readList() {
         List<Customer> customerList = new ArrayList<>();
         File file = new File("listCustomer.txt");
         if (!file.exists()) {

@@ -4,11 +4,10 @@ package control;
 import model.room.Room;
 import storage.FileManagerRoom;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RoomManager implements IGeneralManager<Room>{
-    List<Room> roomList = new ArrayList<>();
+    private List<Room> roomList;
     private FileManagerRoom fileManagerRoom;
 
     public List<Room> getRoomList() {
@@ -35,16 +34,19 @@ public class RoomManager implements IGeneralManager<Room>{
     @Override
     public void saveList(Room room) {
         roomList.add(room);
+        fileManagerRoom.writeList(roomList);
     }
 
     @Override
     public void removeByIndex(int index) {
         roomList.remove(index);
+        fileManagerRoom.writeList(roomList);
     }
 
     @Override
     public void updateByIndex(int index, Room room) {
         roomList.set(index, room);
+        fileManagerRoom.writeList(roomList);
     }
 
     @Override
