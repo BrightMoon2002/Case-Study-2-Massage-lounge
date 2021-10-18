@@ -8,7 +8,10 @@ import java.util.List;
 
 public class FileManagerAdmin extends BaseFileManager<Admin> {
     private static FileManagerAdmin fileManagerAdmin;
-    private FileManagerAdmin() {}
+
+    private FileManagerAdmin() {
+    }
+
     public static FileManagerAdmin getInstance() {
         if (fileManagerAdmin == null) {
             fileManagerAdmin = new FileManagerAdmin();
@@ -21,10 +24,10 @@ public class FileManagerAdmin extends BaseFileManager<Admin> {
         if (list == null) {
             list = new ArrayList<>();
         }
-        File file =  new File("listAdmin.txt");
+        File file = new File("listAdmin.txt");
         try {
             FileOutputStream fos = new FileOutputStream(file);
-           ObjectOutputStream oos = new ObjectOutputStream(fos);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(list);
             oos.close();
             fos.close();
@@ -36,7 +39,7 @@ public class FileManagerAdmin extends BaseFileManager<Admin> {
     }
 
     @Override
-   public List<Admin> readList() {
+    public List<Admin> readList() {
         List<Admin> adminList = new ArrayList<>();
         File file = new File("listAdmin.txt");
         if (!file.exists()) {
