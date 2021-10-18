@@ -3,11 +3,14 @@ package view;
 import control.*;
 import login.Customer;
 import login.User;
+import login.UserFactory;
+import login.UserType;
 import model.Bill;
 import model.idol.Idol;
 import model.room.Room;
 import storage.*;
 
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Scanner;
 
@@ -54,6 +57,7 @@ public class MenuCustomer {
         roomManager.setRoomList(roomList);
 
         while (true) {
+            User user = userManager.searchByName(loginManager.getUserList().get(0).getUsername());
             System.out.println("Menu of Customer:");
             System.out.println("1. Change password:");
             System.out.println("2. Change information of account");
@@ -68,19 +72,52 @@ public class MenuCustomer {
                     System.out.println("Enter the password you want to change:");
                     Scanner inputPassword = new Scanner(System.in);
                     String password = inputPassword.nextLine();
-                    User user = userManager.searchByName(loginManager.getUserList().get(0).getUsername());
                     userManager.changePassword(userList.indexOf(user),password);
                     break;
                 case 2:
-                    System.out.println("Enter the new username: ");
-                    Scanner inputNewUserName = new Scanner(System.in);
-                    String userName = inputNewUserName.nextLine();
-
-                    User user =new Customer(userName, password, id, fullName)
+                    userManager.updateByIndex(userList.indexOf(user), creatNewUser());
+                    break;
+                case 3:
+                    idolManager.showAllList();
+                    break;
+                case 4:
+                    roomManager.showAllList();
+                    break;
+                case 5:
+                    System.out.println("Enter the id of idol you want her to serve you");
+                    Scanner inputId = new Scanner(System.in);
+                    String id = inputId.nextLine();
+                    Idol idol = idolManager.searchById(id);
+                    System.out.println("Enter the id of room you want to use");
+                    Scanner inputIdRoom = new Scanner(System.in);
+                    String idRoom = inputIdRoom.nextLine();
+                    Room room = roomManager.searchById(idRoom);
+                    if (!idol.isStatus() && !room.isStatus()) {
+                        Bill bill = new Bill("123", idol, room, user, LocalTime.now());
+                        billManager.saveList(bill);
+                        billManager.showAllList();
+                    }
             }
         }
 
 
+    }
+
+    private static User creatNewUser() {
+        System.out.println("Enter the new username: ");
+        Scanner inputNewUserName = new Scanner(System.in);
+        String userName = inputNewUserName.nextLine();
+        System.out.println("Enter the new password: ");
+        Scanner inputNewPassword = new Scanner(System.in);
+        String newPassword = inputNewPassword.nextLine();
+        System.out.println("Enter the new id: ");
+        Scanner inputNewId = new Scanner(System.in);
+        String newId = inputNewId.nextLine();
+        System.out.println("Enter the new fullName");
+        Scanner inputNewName = new Scanner(System.in);
+        String fullName = inputNewName.nextLine();
+        User newUser = UserFactory.getUser(UserType.CUSTOMER, userName, newPassword, newId, fullName);
+        return newUser;
     }
 }
 

@@ -1,6 +1,7 @@
 package model;
 
 import login.Customer;
+import login.User;
 import model.idol.Idol;
 import model.room.Room;
 
@@ -11,7 +12,7 @@ public class Bill implements Serializable {
     private String code;
     private Idol idol;
     private Room room;
-    private Customer customer;
+    private User user;
     private LocalTime checkin;
     private LocalTime expiryDate;
     private LocalTime checkout;
@@ -19,14 +20,21 @@ public class Bill implements Serializable {
     public Bill() {
     }
 
-    public Bill(String code, Room room, Idol idol, LocalTime checkin, LocalTime checkout) {
-        this.code = code;
+    public Bill(String code, Idol idol, Room room, User user, LocalTime checkin) {
+        this.user = user;
         this.room = room;
         this.idol = idol;
         this.checkin = checkin;
         this.setExpiryDate(checkin.plusHours(2));
-        this.checkout = checkout;
+        this.code = code;
+    }
 
+    public Bill(Idol idol, Room room, User user, LocalTime checkin) {
+        this.idol = idol;
+        this.room = room;
+        this.user = user;
+        this.setExpiryDate(checkin.plusHours(2));
+        this.checkin = checkin;
     }
 
     public String getCode() {
@@ -78,12 +86,13 @@ public class Bill implements Serializable {
         this.checkout = checkout;
     }
 
-    public Customer getCustomer() {
-        return customer;
+
+    public User getUser() {
+        return user;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public double getMoneyOfRoomAndIdol() {
@@ -112,7 +121,7 @@ public class Bill implements Serializable {
                 "code='" + code + '\'' +
                 ", idol=" + idol +
                 ", checkin=" + checkin +
-                ", checkout=" + checkout +
+                ", checkout=" + checkout + getMoneyToPay() +
                 '}';
     }
 }
