@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileManagerBill extends BaseFileManager<Bill> {
+public class FileManagerBill extends BaseFileManager<Bill>  {
     private static FileManagerBill fileManagerBill;
 private FileManagerBill() {}
     public static FileManagerBill getInstance() {
