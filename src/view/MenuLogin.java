@@ -71,7 +71,8 @@ public class MenuLogin {
 
         FileManagerLogin fileManagerLogin = FileManagerLogin.getInstance();
         loginManager.setFileManagerLogin(fileManagerLogin);
-        List<User> loginList = fileManagerUser.readList();
+        List<User> loginList = fileManagerLogin.readList();
+        loginManager.setUserList(loginList);
 
 
         while (true) {
@@ -87,8 +88,11 @@ public class MenuLogin {
                     System.out.println("go to the menu");
                     if (user.getRole().equalsIgnoreCase("Admin")) {
                         System.out.println("go menu admin");
+                        loginManager.saveUser(user);
                         menuAdmin.menuAdmin();
+
                     } else {
+                        loginManager.saveUser(user);
                         menuCustomer.menuCustomer();
                     }
                 } else {

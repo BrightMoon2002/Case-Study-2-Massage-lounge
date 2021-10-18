@@ -44,6 +44,11 @@ public class UserManager implements IGeneralManager<User>{
         fileManagerUser.writeList(userList);
     }
 
+    public void changePassword(int index, String password) {
+        userList.get(index).setPassword(password);
+        fileManagerUser.writeList(userList);
+    }
+
     @Override
     public void updateByIndex(int index, User user) {
         userList.set(index, user);

@@ -22,7 +22,7 @@ public class Customer extends User implements Serializable {
     }
 
     public String getFullName() {
-        return fullName;
+        return super.getFullName();
     }
 
     public void setFullName(String fullName) {

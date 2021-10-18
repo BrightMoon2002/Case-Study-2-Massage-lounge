@@ -3,19 +3,21 @@ package control;
 import login.User;
 import storage.FileManagerLogin;
 
+import java.util.List;
+
 public class LoginManager {
-    private User user;
+    private List<User> userList;
     private FileManagerLogin fileManagerLogin;
 
     public LoginManager() {
     }
 
-    public User getUser() {
-        return user;
+    public List<User> getUserList() {
+        return userList;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
     }
 
     public FileManagerLogin getFileManagerLogin() {
@@ -24,5 +26,10 @@ public class LoginManager {
 
     public void setFileManagerLogin(FileManagerLogin fileManagerLogin) {
         this.fileManagerLogin = fileManagerLogin;
+    }
+
+    public void saveUser(User user) {
+        userList.set(0, user);
+        fileManagerLogin.writeList(userList);
     }
 }
