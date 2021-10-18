@@ -3,7 +3,13 @@ package view;
 import java.util.Scanner;
 
 public class MenuCustomer {
-    public static void main(String[] args) {
+    private MenuLogin menuLogin;
+
+
+   public MenuCustomer() {}
+
+
+    public static void menuCustomer() {
         while (true) {
             System.out.println("Menu of Customer:");
             System.out.println("1. Change password:");
@@ -21,6 +27,9 @@ public class MenuCustomer {
                     String password = inputPassword.nextLine();
 
             }
+    }
+
+
         }
     }
-}
+

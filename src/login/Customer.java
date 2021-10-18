@@ -13,6 +13,12 @@ public class Customer extends User implements Serializable {
         super(username, password, id);
         this.fullName = fullName;
         this.mobile = mobile;
+        super.setRole("Customer");
+    }
+
+    public Customer(String username, String password, String id, String fullName) {
+        super(username, password, id, fullName);
+        super.setRole("Customer");
     }
 
     public String getFullName() {

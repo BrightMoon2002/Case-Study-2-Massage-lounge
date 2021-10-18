@@ -1,29 +1,27 @@
 package storage;
 
-import model.room.Room;
+import login.User;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileManagerRoom extends BaseFileManager<Room> {
+public class FileManagerUser extends BaseFileManager<User> {
 
-    private static FileManagerRoom fileManagerRoom;
-    private FileManagerRoom() {}
-    public static FileManagerRoom getInstance() {
-        if (fileManagerRoom== null) {
-            fileManagerRoom = new FileManagerRoom();
+    private static FileManagerUser fileManagerUser;
+    private FileManagerUser() {}
+    public static FileManagerUser getInstance() {
+        if (fileManagerUser == null) {
+            fileManagerUser = new FileManagerUser();
         }
-        return fileManagerRoom;
+        return fileManagerUser;
     }
-
-
     @Override
-   public void writeList(List<Room> list) {
+   public void writeList(List<User> list) {
         if (list == null) {
             list = new ArrayList<>();
         }
-        File file = new File("listRoom.txt");
+        File file = new File("listUser.txt");
         try {
             FileOutputStream fos = new FileOutputStream(file);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -39,9 +37,9 @@ public class FileManagerRoom extends BaseFileManager<Room> {
     }
 
     @Override
-    public List<Room> readList() {
-        List<Room> roomList = new ArrayList<>();
-        File file = new File("listRoom.txt");
+   public List<User> readList() {
+        List<User> userList = new ArrayList<>();
+        File file = new File("listUser.txt");
         if (!file.exists()) {
             try {
                 file.createNewFile();
@@ -55,12 +53,12 @@ public class FileManagerRoom extends BaseFileManager<Room> {
         try {
             FileInputStream is = new FileInputStream(file);
             ObjectInputStream ois = new ObjectInputStream(is);
-            roomList = (List<Room>) ois.readObject();
+            userList = (List<User>) ois.readObject();
             ois.close();
             is.close();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return roomList;
+        return userList;
     }
 }
