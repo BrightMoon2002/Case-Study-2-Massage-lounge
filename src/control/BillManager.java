@@ -65,7 +65,7 @@ private FileManagerBill fileManagerBill;
     public Bill searchByName(String name) {
         Bill bill = null;
         for (int i = billList.size() -1; i >= 0; i--) {
-            if (billList.get(i).getCustomer().getFullName().equalsIgnoreCase(name)) {
+            if (billList.get(i).getCustomer().getUsername().equalsIgnoreCase(name)) {
                 bill = billList.get(i);
                 break;
             }

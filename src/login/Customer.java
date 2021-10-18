@@ -10,13 +10,26 @@ public class Customer extends User implements Serializable {
     }
 
     public Customer(String username, String password, String id, String fullName, String mobile) {
-        super(password, username, id);
+        super(username, password, id);
         this.fullName = fullName;
         this.mobile = mobile;
     }
 
+    public String getFullName() {
+        return fullName;
+    }
 
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
 
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
 
     @Override
     public String toString() {

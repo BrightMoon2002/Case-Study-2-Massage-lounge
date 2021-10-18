@@ -1,6 +1,8 @@
 package login;
 
-public class User extends BaseUser{
+import java.io.Serializable;
+
+public class User extends BaseUser implements Serializable {
     private String password;
     private String username;
     private String id;
