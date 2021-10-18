@@ -66,7 +66,7 @@ public class CustomerManager implements IGeneralManager<Customer> {
     public Customer searchByName(String name) {
         Customer customer = null;
         for (int i = 0; i < customerList.size(); i++) {
-            if (customerList.get(i).getFullName().equalsIgnoreCase(name)) {
+            if (customerList.get(i).getUsername().equalsIgnoreCase(name)) {
                 customer = customerList.get(i);
                 break;
             }

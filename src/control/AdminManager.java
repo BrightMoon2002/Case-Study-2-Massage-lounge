@@ -32,19 +32,19 @@ public class AdminManager implements IGeneralManager<Admin> {
     }
 
     @Override
-    public void saveList(Admin admin) throws IOException {
+    public void saveList(Admin admin) {
         adminList.add(admin);
         fileManagerAdmin.writeList(adminList);
     }
 
     @Override
-    public void removeByIndex(int index) throws IOException {
+    public void removeByIndex(int index)  {
         adminList.remove(index);
         fileManagerAdmin.writeList(adminList);
     }
 
     @Override
-    public void updateByIndex(int index, Admin admin) throws IOException {
+    public void updateByIndex(int index, Admin admin) {
         adminList.set(index, admin);
         fileManagerAdmin.writeList(adminList);
     }

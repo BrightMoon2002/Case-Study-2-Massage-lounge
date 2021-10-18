@@ -1,9 +1,7 @@
 package view;
 
-import control.BillManager;
-import control.CustomerManager;
-import control.IdolManager;
-import control.RoomManager;
+import control.*;
+import login.Admin;
 import model.Bill;
 import login.Customer;
 import model.idol.Idol;
@@ -12,14 +10,11 @@ import model.idol.IdolType;
 import model.room.Room;
 import model.room.RoomFactory;
 import model.room.RoomType;
-import storage.FileManagerBill;
-import storage.FileManagerCustomer;
-import storage.FileManagerIdol;
-import storage.FileManagerRoom;
+import storage.*;
 
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 
 public class Main {
@@ -28,35 +23,31 @@ public class Main {
 
 
         IdolManager idolManager = new IdolManager();
-
-
         RoomManager roomManager = new RoomManager();
-
         CustomerManager customerManager = new CustomerManager();
-
-
-
         BillManager billManager = new BillManager();
+        AdminManager adminManager = new AdminManager();
+
+
         FileManagerBill fileManagerBill = FileManagerBill.getInstance();
         billManager.setFileManagerBill(fileManagerBill);
-        List<Bill> billList = new ArrayList<>();
-        billManager.setBillList(billList);
-       fileManagerBill.readList();
+        List<Bill> billList = fileManagerBill.readList();
+         billManager.setBillList(billList);
 
 
         FileManagerCustomer fileManagerCustomer = FileManagerCustomer.getInstance();
         customerManager.setFileManagerCustomer(fileManagerCustomer);
-        List<Customer> customerList = new ArrayList<>();
+        List<Customer> customerList = fileManagerCustomer.readList();
         customerManager.setCustomerList(customerList);
 
         FileManagerIdol fileManagerIdol =  FileManagerIdol.getInstance();
         idolManager.setFileManagerIdol(fileManagerIdol);
-        List<Idol> idolList = new ArrayList<>();
+        List<Idol> idolList =fileManagerIdol.readList();
         idolManager.setIdolList(idolList);
 
         FileManagerRoom fileManagerRoom = FileManagerRoom.getInstance();
         roomManager.setFileManagerRoom(fileManagerRoom);
-        List<Room> roomList = new ArrayList<>();
+        List<Room> roomList = fileManagerRoom.readList();
         roomManager.setRoomList(roomList);
         Idol idolA = IdolFactory.getIdol(IdolType.IDOLA);
         Idol idolB = IdolFactory.getIdol(IdolType.IDOLB);
@@ -82,6 +73,29 @@ public class Main {
         Bill bill = new Bill("12345", room1, idolA, LocalTime.now(), LocalTime.now());
         billManager.saveList(bill);
 
+        FileManagerAdmin fileManagerAdmin = FileManagerAdmin.getInstance();
+        adminManager.setFileManagerAdmin(fileManagerAdmin);
+        List<Admin> adminList = fileManagerAdmin.readList();
+        adminManager.setAdminList(adminList);
 
+        Admin admin =  new Admin("John", "123", "123456");
+        adminManager.saveList(admin);
+        billManager.showAllList();
+        adminManager.showAllList();
+
+        while(true) {
+            System.out.println("Your are the Customer or Manager?");
+            Scanner inputChoice =  new Scanner(System.in);
+            int choice =  inputChoice.nextInt();
+            System.out.println("1. Customer");
+            System.out.println("2. Manager");
+            switch (choice) {
+                case 1:
+                    System.out.println("Enter your name:");
+                    Scanner inputUsername = new Scanner(System.in);
+                    String username =  inputUsername.nextLine();
+                    if (customerManager.searchByName(username) != null)
+            }
+        }
     }
 }
